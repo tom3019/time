@@ -43,6 +43,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Min
@@ -134,7 +135,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("新細明體", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label3.Location = new System.Drawing.Point(137, 166);
+            this.label3.Location = new System.Drawing.Point(145, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 11);
             this.label3.TabIndex = 8;
@@ -165,17 +166,28 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(210, 162);
+            this.label6.Location = new System.Drawing.Point(215, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 9;
             this.label6.Text = "                ";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(40, 162);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(245, 25);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "鬧鐘";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
             // Timer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 177);
+            this.ClientSize = new System.Drawing.Size(324, 208);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -213,6 +225,7 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
     }
 }
 

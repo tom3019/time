@@ -15,6 +15,7 @@ namespace Timer
     {
         int sec, min, hour;
         int count = 0;
+        int count3 = 0;
         int muscount = 0;
         OpenFileDialog file = new OpenFileDialog();
         WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
@@ -113,7 +114,31 @@ namespace Timer
             this.TopMost = false;
         }
 
-
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            count3++;
+            Hour.Visible = false;
+            Min.Visible = false;
+            Sec.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+            label1.Visible = false;
+            label2.Visible = false;
+            button3.Text = "計時器";
+            if (count3 == 2)
+            {
+                timer1.Stop();
+                button3.Text = "鬧鐘";
+                Hour.Visible = true;
+                Min.Visible = true;
+                Sec.Visible = true;
+                button1.Visible = true;
+                button2.Visible = true;
+                label1.Visible = true;
+                label2.Visible = true;
+                count3 = 0;
+            }
+        }
 
         private void Button1_Click(object sender, EventArgs e)
         {
