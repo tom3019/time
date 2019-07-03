@@ -13,11 +13,15 @@ namespace Timer
 {
     public partial class Timer : Form
     {
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
         int sec, min, hour;
         int count = 0;
         int count3 = 0;
         int muscount = 0;
+        
         OpenFileDialog file = new OpenFileDialog();
+        
+        //
         WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
         string dirPath = $@"{AppDomain.CurrentDomain.BaseDirectory}\Music";
         string[] MusPath = new string[100];
@@ -48,13 +52,59 @@ namespace Timer
                 MusPath[muscount] = fname;
                 muscount++;
             }
+             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            //建立NotifyIcon
+            this.notifyIcon1.Icon = new Icon($@"{AppDomain.CurrentDomain.BaseDirectory}\time.ico");
+            this.notifyIcon1.Text = "Timer";
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+
         }
 
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             label6.Text = DateTime.Now.ToString("yyyy/MM/dd  hh:mm:ss");
-            
+            string time = DateTime.Now.ToString("hh:mm:ss");
+            if (textBox1.Text == time)
+            {
+                 MessageBox.Show($"{textBox2.Text}","時間到",
+                 MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                 MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                 wplayer.URL = $"{MusPath[0]}";
+            }
+            else if (textBox4.Text == time)
+            {
+                MessageBox.Show($"{textBox3.Text}", "時間到",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                wplayer.URL = $"{MusPath[0]}";
+            }
+            else if (textBox6.Text == time)
+            {
+                MessageBox.Show($"{textBox5.Text}", "時間到",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                wplayer.URL = $"{MusPath[0]}";
+            }
+            else if (textBox8.Text == time)
+            {
+                MessageBox.Show($"{textBox7.Text}", "時間到",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                wplayer.URL = $"{MusPath[0]}";
+            }
+            else if (textBox10.Text == time)
+            {
+                MessageBox.Show($"{textBox9.Text}", "時間到",
+                MessageBoxButtons.OK, MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                wplayer.URL = $"{MusPath[0]}";
+            }
         }
 
         private void RichTextBox3_KeyPress(object sender, KeyPressEventArgs e)//Sec
@@ -116,6 +166,8 @@ namespace Timer
 
         private void Button3_Click(object sender, EventArgs e)
         {
+            
+
             count3++;
             Hour.Visible = false;
             Min.Visible = false;
@@ -124,7 +176,18 @@ namespace Timer
             button2.Visible = false;
             label1.Visible = false;
             label2.Visible = false;
+            textBox1.Visible = true;
+            textBox2.Visible = true;
+            textBox3.Visible = true;
+            textBox4.Visible = true;
+            textBox5.Visible = true;
+            textBox6.Visible = true;
+            textBox7.Visible = true;
+            textBox8.Visible = true;
+            textBox9.Visible = true;
+            textBox10.Visible = true;
             button3.Text = "計時器";
+
             if (count3 == 2)
             {
                 timer1.Stop();
@@ -136,7 +199,26 @@ namespace Timer
                 button2.Visible = true;
                 label1.Visible = true;
                 label2.Visible = true;
+                textBox1.Visible = false;
+                textBox2.Visible = false;
+                textBox3.Visible = false;
+                textBox4.Visible = false;
+                textBox5.Visible = false;
+                textBox6.Visible = false;
+                textBox7.Visible = false;
+                textBox8.Visible = false;
+                textBox9.Visible = false;
+                textBox10.Visible = false;
                 count3 = 0;
+            }
+        }
+
+        private void Timer_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+                this.notifyIcon1.Visible = true;
             }
         }
 
@@ -240,7 +322,7 @@ namespace Timer
                 button1.Text = "開始";
                 timer1.Stop();
                 count = 0;
-                this.WindowState = FormWindowState.Normal;
+                //this.WindowState = FormWindowState.Normal;
                 this.TopMost = true;
 
                 //this.Show(this);
