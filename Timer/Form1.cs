@@ -190,7 +190,7 @@ namespace Timer
 
             if (count3 == 2)
             {
-                timer1.Stop();
+                //timer1.Stop();
                 button3.Text = "鬧鐘";
                 Hour.Visible = true;
                 Min.Visible = true;
