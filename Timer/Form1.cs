@@ -240,7 +240,11 @@ namespace Timer
             }
             else
             {
-                seC[0] = Sec.Text;
+                if (count==1)
+                {
+                 seC[0] = Sec.Text;
+
+                }
                 sec = int.Parse(Sec.Text);//FormatException: 
 
             }
@@ -251,7 +255,11 @@ namespace Timer
             }
             else
             {
-                miN[0] = Min.Text;
+                if (count==1)
+                {
+                 miN[0] = Min.Text;
+
+                }
                 min = int.Parse(Min.Text);
 
             }
@@ -262,7 +270,11 @@ namespace Timer
             }
             else
             {
-                houR[0] = Hour.Text;
+                if (count==1)
+                {
+
+                 houR[0] = Hour.Text;
+                }
                 hour = int.Parse(Hour.Text);
             }
 
