@@ -13,7 +13,7 @@ namespace Timer
 {
     public partial class Timer : Form
     {
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        
         int sec, min, hour;
         int count = 0;
         int count3 = 0;
@@ -52,11 +52,11 @@ namespace Timer
                 MusPath[muscount] = fname;
                 muscount++;
             }
-             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+             
             //建立NotifyIcon
-            this.notifyIcon1.Icon = new Icon($@"{AppDomain.CurrentDomain.BaseDirectory}\time.ico");
-            this.notifyIcon1.Text = "Timer";
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.notifyIcon2.Icon = new Icon($@"{AppDomain.CurrentDomain.BaseDirectory}\time.ico");
+            this.notifyIcon2.Text = "Timer";
+            this.notifyIcon2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
 
         }
 
@@ -218,8 +218,79 @@ namespace Timer
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
-                this.notifyIcon1.Visible = true;
+                this.notifyIcon2.Visible = true;
             }
+        }
+
+        private void 再來一次ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            Sec.Text = seC[0];
+            Min.Text = miN[0];
+            Hour.Text = houR[0];
+            wplayer.close();            
+            Min.ReadOnly = true;
+            Sec.ReadOnly = true;
+            Hour.ReadOnly = true;
+            button1.Text = "暫停";
+            
+
+
+            if (string.IsNullOrEmpty(Sec.Text))
+            {
+                Sec.Text = "00";
+                sec = int.Parse(Sec.Text);//FormatException:            
+            }
+            else
+            {
+              
+                sec = int.Parse(Sec.Text);//FormatException: 
+
+            }
+            if (string.IsNullOrEmpty(Min.Text))
+            {
+                Min.Text = "00";
+                min = int.Parse(Min.Text);
+            }
+            else
+            {
+               
+                min = int.Parse(Min.Text);
+
+            }
+            if (string.IsNullOrEmpty(Hour.Text))
+            {
+                Hour.Text = "00";
+                hour = int.Parse(Hour.Text);
+            }
+            else
+            {
+               
+                hour = int.Parse(Hour.Text);
+            }
+
+            if (sec > 60)
+            {
+                Sec.Text = "59";
+            }
+            if (min > 60)
+            {
+                Min.Text = "59";
+            }
+            if (hour > 24)
+            {
+                Hour.Text = "23";
+            }
+
+            timer1.Start();
+
+        }
+
+
+
+        private void 結束ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void Button1_Click(object sender, EventArgs e)

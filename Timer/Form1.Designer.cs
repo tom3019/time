@@ -54,6 +54,11 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.notifyIcon2 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.再來一次ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.關閉程式ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Min
@@ -287,6 +292,34 @@
             this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox10.Visible = false;
             // 
+            // notifyIcon2
+            // 
+            this.notifyIcon2.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon2.Text = "notifyIcon2";
+            this.notifyIcon2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.再來一次ToolStripMenuItem,
+            this.關閉程式ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // 再來一次ToolStripMenuItem
+            // 
+            this.再來一次ToolStripMenuItem.Name = "再來一次ToolStripMenuItem";
+            this.再來一次ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.再來一次ToolStripMenuItem.Text = "再來一次";
+            this.再來一次ToolStripMenuItem.Click += new System.EventHandler(this.再來一次ToolStripMenuItem_Click);
+            // 
+            // 關閉程式ToolStripMenuItem
+            // 
+            this.關閉程式ToolStripMenuItem.Name = "關閉程式ToolStripMenuItem";
+            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.關閉程式ToolStripMenuItem.Text = "關閉程式";
+            this.關閉程式ToolStripMenuItem.Click += new System.EventHandler(this.結束ToolStripMenuItem_Click);
+            // 
             // Timer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -321,6 +354,7 @@
             this.Text = "計時器";
             this.TopMost = true;
             this.SizeChanged += new System.EventHandler(this.Timer_SizeChanged);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,6 +386,10 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.NotifyIcon notifyIcon2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 再來一次ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 關閉程式ToolStripMenuItem;
     }
 }
 
