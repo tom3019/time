@@ -295,6 +295,7 @@
             // notifyIcon2
             // 
             this.notifyIcon2.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon2.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon2.Icon")));
             this.notifyIcon2.Text = "notifyIcon2";
             this.notifyIcon2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
@@ -304,7 +305,7 @@
             this.再來一次ToolStripMenuItem,
             this.關閉程式ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(123, 48);
             // 
             // 再來一次ToolStripMenuItem
             // 
@@ -316,7 +317,7 @@
             // 關閉程式ToolStripMenuItem
             // 
             this.關閉程式ToolStripMenuItem.Name = "關閉程式ToolStripMenuItem";
-            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.關閉程式ToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.關閉程式ToolStripMenuItem.Text = "關閉程式";
             this.關閉程式ToolStripMenuItem.Click += new System.EventHandler(this.結束ToolStripMenuItem_Click);
             // 

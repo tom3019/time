@@ -54,8 +54,7 @@ namespace Timer
             }
              
             //建立NotifyIcon
-            this.notifyIcon2.Icon = new Icon($@"{AppDomain.CurrentDomain.BaseDirectory}\time.ico");
-            
+           
             this.notifyIcon2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
 
         }
