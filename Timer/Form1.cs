@@ -55,7 +55,7 @@ namespace Timer
              
             //建立NotifyIcon
             this.notifyIcon2.Icon = new Icon($@"{AppDomain.CurrentDomain.BaseDirectory}\time.ico");
-            this.notifyIcon2.Text = "Timer";
+            
             this.notifyIcon2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
 
         }
@@ -70,6 +70,7 @@ namespace Timer
         {
             label6.Text = DateTime.Now.ToString("yyyy/MM/dd  hh:mm:ss");
             string time = DateTime.Now.ToString("hh:mm:ss");
+            this.notifyIcon2.Text = $"{Hour.Text}:{Min.Text}:{Sec.Text}";
             if (textBox1.Text == time)
             {
                  MessageBox.Show($"{textBox2.Text}","時間到",
